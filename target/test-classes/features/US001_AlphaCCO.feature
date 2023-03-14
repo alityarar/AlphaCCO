@@ -3,7 +3,7 @@
 Feature: US001 AlphaCCO
 
   @TC1
-  Scenario: TC001 Smoke Test
+  Scenario: TC001 Positive Login Page
 
     Given User goes "alphaWebSite"
     Then Verify that the Login page is accessible and loads correctly
@@ -13,7 +13,7 @@ Feature: US001 AlphaCCO
     Then Close All
 
     @TC2
-    Scenario: TC002 Login Page
+    Scenario: TC002 Negative Login Page
       Given User goes "alphaWebSite"
       Then Enter "fakeUser" and "fakePassword"
       And Verify that the user cannot log in with invalid credentials

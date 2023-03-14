@@ -3,6 +3,7 @@ package utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
@@ -40,8 +41,10 @@ public class Driver {
 
             switch (ConfigReader.getProperty("browser")){
                 case"chrome" :
+                    ChromeOptions options=new ChromeOptions();
                     WebDriverManager.chromedriver().setup();
-                    driver=new ChromeDriver();
+                    options.addArguments("--remote-allow-origins=*");
+                    driver=new ChromeDriver(options);
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
